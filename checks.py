@@ -46,3 +46,13 @@ def clamp_unit(value: float) -> float:
     if value > 1:
         return 1.0
     return value
+
+
+def is_close(a: float, b: float, *, rel_tol: float = 1e-9, abs_tol: float = 0.0) -> bool:
+    """
+    Return True when a and b are approximately equal.
+
+    Example:
+        is_close(1.0, 1.0 + 1e-12)  -> True
+    """
+    return math.isclose(a, b, rel_tol=rel_tol, abs_tol=abs_tol)
