@@ -30,3 +30,19 @@ def identity(value: float) -> float:
         identity(7)  -> 7
     """
     return value
+
+
+def clamp_unit(value: float) -> float:
+    """
+    Clamp `value` into the inclusive unit interval [0, 1].
+
+    Example:
+        clamp_unit(1.5)  -> 1.0
+        clamp_unit(-0.2) -> 0.0
+    """
+    value = ensure_finite(value)
+    if value < 0:
+        return 0.0
+    if value > 1:
+        return 1.0
+    return value
